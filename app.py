@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 token = "EAAOBui2KGS4BAOCPWZBal98nFqFSzSk3bOdPZCxB1QU9yH78Px4BGGZBh407fF2B9O9M89dr0DKWVq3JTLoGhZAElU0UYsCVU0iMJrGApfMVlWLlCc76PRv8LQPU9cep6y2Npsn2Hk4XtlOkbVIyiBl0vSdDsqZAwqLSrTmyFoQZDZD"
 
+
 @app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
     if request.method == 'POST':
@@ -23,6 +24,7 @@ def webhook():
             return request.args.get('hub.challenge')
         return "Wrong Verify Token"
     return "Hello World" #Not Really Necessary
+
 
 if __name__ == '__main__':
     app.run(debug=True)
