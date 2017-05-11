@@ -1,30 +1,55 @@
+import os, sys
 from flask import Flask, request
-import requests
-import json
-import traceback
-import random
+from pymessenger import Bot
+
 app = Flask(__name__)
 
-token = "EAAOBui2KGS4BAOCPWZBal98nFqFSzSk3bOdPZCxB1QU9yH78Px4BGGZBh407fF2B9O9M89dr0DKWVq3JTLoGhZAElU0UYsCVU0iMJrGApfMVlWLlCc76PRv8LQPU9cep6y2Npsn2Hk4XtlOkbVIyiBl0vSdDsqZAwqLSrTmyFoQZDZD"
+PAGE_ACCESS_TOKEN = "EAAOBui2KGS4BAOCPWZBal98nFqFSzSk3bOdPZCxB1QU9yH78Px4BGGZBh407fF2B9O9M89dr0DKWVq3JTLoGhZAElU0UYsCVU0iMJrGApfMVlWLlCc76PRv8LQPU9cep6y2Npsn2Hk4XtlOkbVIyiBl0vSdDsqZAwqLSrTmyFoQZDZD"
+
+bot = Bot(PAGE_ACCESS_TOKEN)
 
 
-@app.route('/webhook', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
+def verify():
+    # Webhook verification
+    if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
+        if not request.args.get("hub.verify_token") == "hello":
+            return "Verification token mismatch", 403
+        return request.args["hub.challenge"], 200
+    return "Hello world", 200
+
+
+@app.route('/', methods=['POST'])
 def webhook():
-    if request.method == 'POST':
-        try:
-          data = json.loads(request.data)
-          text = data['entry'][0]['messaging'][0]['message']['text'] # Incoming Message Text
-          sender = data['entry'][0]['messaging'][0]['sender']['id'] # Sender ID
-          payload = {'recipient': {'id': sender}, 'message': {'text': "Hello World"}} # We're going to send this back
-          r = requests.post('https://graph.facebook.com/v2.6/me/messages/?access_token=' + token, json=payload) # Lets send it
-        except Exception as e:
-            print(traceback.format_exc()) # something went wrong
-    elif request.method == 'GET': # For the initial verification
-        if request.args.get('hub.verify_token') == '<VERIFY_TOKEN_HERE>':
-            return request.args.get('hub.challenge')
-        return "Wrong Verify Token"
-    return "Hello World" #Not Really Necessary
+    data = request.get_json()
+    log(data)
+
+    if data['object'] == 'page':
+        for entry in data['entry']:
+            for messaging_event in entry['messaging']:
+
+                # IDs
+                sender_id = messaging_event['sender']['id']
+                recipient_id = messaging_event['recipient']['id']
+
+                if messaging_event.get('message'):
+                    # Extracting text message
+                    if 'text' in messaging_event['message']:
+                        messaging_text = messaging_event['message']['text']
+                    else:
+                        messaging_text = 'no text'
+
+                    # Echo
+                    response = messaging_text
+                    bot.send_text_message(sender_id, response)
+
+    return "ok", 200
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+def log(message):
+    print(message)
+    sys.stdout.flush()
+
+
+if __name__ == "__main__":
+    app.run(debug = True, port = 80)
