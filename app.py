@@ -1,13 +1,13 @@
 import os, sys
 from flask import Flask, request
 from pymessenger import Bot
+import query
 
 app = Flask(__name__)
 
-PAGE_ACCESS_TOKEN = "EAAOBui2KGS4BAOCPWZBal98nFqFSzSk3bOdPZCxB1QU9yH78Px4BGGZBh407fF2B9O9M89dr0DKWVq3JTLoGhZAElU0UYsCVU0iMJrGApfMVlWLlCc76PRv8LQPU9cep6y2Npsn2Hk4XtlOkbVIyiBl0vSdDsqZAwqLSrTmyFoQZDZD"
+PAGE_ACCESS_TOKEN = "EAAOBui2KGS4BAGYiwPuucucemg0YdXXmxgaJCbRYR0GGzV6lUX71OGIDn2mqyBSiZCXcT1gYFyANsZCl6Ro3MUvcMZBWV3mSZA4cQ4PmwwPl76HLaiBDPVrIkKXdQKE5CAVbDQTWYwRBrsC3TKnJe8lqlk3ZAceybscRkxSZAlMBN8002tObjp"
 
 bot = Bot(PAGE_ACCESS_TOKEN)
-
 
 @app.route('/', methods=['GET'])
 def verify():
@@ -40,7 +40,7 @@ def webhook():
                         messaging_text = 'no text'
 
                     # Echo
-                    response = messaging_text
+                    response = query.question(messaging_text)
                     bot.send_text_message(sender_id, response)
 
     return "ok", 200
