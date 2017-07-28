@@ -1,0 +1,949 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#"
+     xml:base="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:必="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#必/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#位置 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#位置">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教室名稱"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#實驗室"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究室"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#系辦公室"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽A棟"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽B棟"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽C棟"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽D棟"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽E棟"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#授課老師 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#授課老師">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#開課"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#課程"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教室名稱 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教室名稱">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽A棟"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽B棟"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽C棟"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽D棟"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽E棟"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#實驗室"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究室"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#系辦公室"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#直屬 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#直屬"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#管理人員 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#管理人員">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#負責管理"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#實驗室"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究室"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#系辦公室"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#行政人員"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#負責管理 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#負責管理">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#行政人員"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#實驗室"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究室"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#系辦公室"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#開課 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#開課">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#課程"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#信箱 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#信箱"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#學歷 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#學歷"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#專長 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#專長"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#性別 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#性別"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#職位 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#職位"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#電話 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#電話"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#必/選修 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#必/選修"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#事 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#事"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#人 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#人"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#國際視野課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#國際視野課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#通識課"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#地 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#地"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#課程"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大三課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大三課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#課程"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大二課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大二課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#課程"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大四課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大四課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#課程"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大學生 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大學生">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#學生"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#學生 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#學生">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#人"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#實驗室 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#實驗室">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#物"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#府城 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#府城">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#地"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#府城附近 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#府城附近">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#府城"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#招生條件 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#招生條件">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#事"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#人"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#文史哲藝術課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#文史哲藝術課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#通識課"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#校核心課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#校核心課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#通識課"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#地"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽A棟 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽A棟">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽B棟 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽B棟">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽C棟 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽C棟">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽D棟 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽D棟">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽E棟 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽E棟">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽附近 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽附近">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#物 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#物"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#生命科學課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#生命科學課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#通識課"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#畢業門檻 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#畢業門檻">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#事"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究室 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究室">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#物"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究生 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究生">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#學生"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#社會脈動課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#社會脈動課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#通識課"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#科技探索課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#科技探索課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#通識課"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#系辦公室 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#系辦公室">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#物"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#美食 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#美食">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#事"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#行政人員 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#行政人員">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#人"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#事"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#通識課 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#通識課">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#課程"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#院核心課程 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#院核心課程">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#通識課"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#107級 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#107級">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大學生"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#108級 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#108級">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大學生"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#109級 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#109級">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大學生"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#110級 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#110級">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大學生"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZA106-1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZA106-1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽A棟"/>
+        <教室名稱 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建樹的研究室"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZA306-1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZA306-1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽A棟"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZA306-2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZA306-2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽A棟"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZB106-1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZB106-1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽B棟"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZB106-2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZB106-2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽B棟"/>
+        <教室名稱 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#多媒體與醫學影像實驗室"/>
+        <教室名稱 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資料庫與資訊系統實驗室"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZB107 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZB107">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽B棟"/>
+        <教室名稱 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資工系辦公室"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZC206-1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZC206-1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽C棟"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZC206-2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZC206-2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#榮譽C棟"/>
+        <教室名稱 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全的研究室"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#人際關係與發展 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#人際關係與發展">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#社會脈動課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#創意思考 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#創意思考">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#科技探索課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#吳建興 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#吳建興">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究生"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#吳柏賢 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#吳柏賢">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#109級"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#吳珀良 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#吳珀良">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#108級"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#國文課 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#國文課">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#校核心課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#國際禮儀 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#國際禮儀">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#國際視野課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#多媒體與醫學影像實驗室 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#多媒體與醫學影像實驗室">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#實驗室"/>
+        <位置 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZB106-2"/>
+        <管理人員 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建樹"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#工程數學 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#工程數學">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大二課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#張維珊 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#張維珊">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#109級"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#性別與社會 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#性別與社會">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#社會脈動課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#方淑音 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#方淑音">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#行政人員"/>
+        <負責管理 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資工系辦公室"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sunshine@mail.nutn.edu.tw</信箱>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">網頁維修</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">女</性別>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123#7701</電話>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123#7702</電話>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建樹 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建樹">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <負責管理 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#多媒體與醫學影像實驗室"/>
+        <負責管理 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建樹的研究室"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資料結構"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cslee@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">國立成功大學電機工程博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">多媒體檢索</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">工業4.0(自動視覺檢測)</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">影像處理</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">智慧穿戴</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">物聯網</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">生物識別</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">生理智慧感測</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">醫學影像分析</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">系主任</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 # 7701</電話>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 # 7803</電話>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建樹的研究室 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建樹的研究室">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究室"/>
+        <位置 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZA106-1"/>
+        <管理人員 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建樹"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#林坤昱 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#林坤昱">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#107級"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#正規語言 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#正規語言">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大三課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#生態與文明 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#生態與文明">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#生命科學課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#科技法律 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#科技法律">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#院核心課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#節能減碳 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#節能減碳">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#科技探索課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#紀品任 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#紀品任">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#108級"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#線性代數 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#線性代數">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大二課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#美國文化 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#美國文化">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#國際視野課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#英文課 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#英文課">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#校核心課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資工系辦公室 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資工系辦公室">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#系辦公室"/>
+        <位置 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZB107"/>
+        <管理人員 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#方淑音"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資料庫系統 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資料庫系統">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大三課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資料庫與資訊系統實驗室 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資料庫與資訊系統實驗室">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#實驗室"/>
+        <位置 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZB106-2"/>
+        <管理人員 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資料結構 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資料結構">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大二課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建樹"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#運動知能與欣賞 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#運動知能與欣賞">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#文史哲藝術課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <負責管理 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資料庫與資訊系統實驗室"/>
+        <負責管理 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全的研究室"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#正規語言"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#資料庫系統"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#離散數學"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#高等資料結構"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bcchien@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">國立交通大學資訊工程博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">機器學習</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">資料庫系統</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">資料探勘與資料分析</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">教授</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 # 7707</電話>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全的研究室 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全的研究室">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#研究室"/>
+        <位置 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#ZC206-2"/>
+        <管理人員 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#離散數學 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#離散數學">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#體育課 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#體育課">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#校核心課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#高等資料結構 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#高等資料結構">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大四課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#錢炳全"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#國際視野課程"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#文史哲藝術課程"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#校核心課程"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#生命科學課程"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#社會脈動課程"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#科技探索課程"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#院核心課程"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大三課程"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大二課程"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大四課程"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#通識課"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#107級"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#108級"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#109級"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#110級"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

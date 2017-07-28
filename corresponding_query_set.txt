@@ -1,0 +1,11 @@
+5 rdf:實驗室 rdf:管理人員 rdf:錢炳全 1 ans rdf:位置 ?x
+1 rdf:資工系辦公室 rdf:位置 ?x
+5 rdf:研究室 rdf:管理人員 rdf:李建樹 1 ans rdf:位置 ?x
+1 rdf:離散數學 rdf:授課老師 ?x
+1 rdf:資料庫與資訊系統實驗室 rdf:管理人員 ?x
+1 rdf:資工系辦公室 rdf:管理人員 ?x
+5 rdf:實驗室 rdf:管理人員 rdf:錢炳全
+4 rdf:大三課程
+1 rdf:錢炳全 rdf:開課 ?x
+5 rdf:大三課程 rdf:授課老師 rdf:錢炳全
+3 rdf:教授 2 rdf:錢炳全 ans
