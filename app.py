@@ -9,6 +9,7 @@ PAGE_ACCESS_TOKEN = "EAAOBui2KGS4BAFcXM446exvn5h7ljcWBXovi3fZBSvQ1otetg9LdcZAMha
 
 bot = Bot(PAGE_ACCESS_TOKEN)
 
+
 @app.route('/', methods=['GET'])
 def verify():
     # Webhook verification

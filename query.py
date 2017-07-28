@@ -53,10 +53,10 @@ def question(user_input):
     if len(data) <= 4:
         command = int(data[0])
         if command == 3 or command == 4:
-            return know.query(command, data[1])
+            return " ".join(know.query(command, data[1]))
         elif command == 2:
-            return know.query(command, data[1], data[2])
+            return " ".join(know.query(command, data[1], data[2]))
         elif command == 1 or command == 5:
-            return know.query(command, data[1], data[2], data[3])
+            return " ".join(know.query(command, data[1], data[2], data[3]))
     else:
         return "not yet"
