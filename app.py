@@ -40,7 +40,7 @@ def webhook():
                         messaging_text = 'no text'
 
                     # Echo
-                    response = messaging_text
+                    response = query.question(messaging_text)
                     bot.send_text_message(sender_id, response)
 
     return "ok", 200

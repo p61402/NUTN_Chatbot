@@ -12,3 +12,5 @@ requests==2.14.2
 requests-toolbelt==0.7.1
 six==1.10.0
 Werkzeug==0.12.1
+rdflib==4.2.2
+jieba==0.38
