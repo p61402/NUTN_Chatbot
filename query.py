@@ -33,7 +33,7 @@ def question(user_input):
             numerator += user_vector[n] * matrix[i][n]
             user_length += user_vector[n]**2
             sample_length += matrix[i][n]**2
-        denominator = (math.sqrt(user_length) * math.sqrt(sample_length)
+        denominator = math.sqrt(user_length) * math.sqrt(sample_length)
         if denominator != 0:
             cosine = numerator / denominator
         else:
