@@ -637,6 +637,23 @@
     
 
 
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#孫光天 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#孫光天">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ktsun@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">國立交通大學資訊工程博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">人工智慧</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">線上適性測驗</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">認知科學</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">電腦輔助學習</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">合聘教授</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2133111 # 773</電話>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#工程數學 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#工程數學">
@@ -650,6 +667,26 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#張維珊">
         <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#109級"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#微積分一 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#微積分一">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#陳榮銘"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#微積分二 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#微積分二">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#陳榮銘"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
     </owl:NamedIndividual>
     
 
@@ -671,8 +708,79 @@
         <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sunshine@mail.nutn.edu.tw</信箱>
         <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">網頁維修</專長>
         <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">女</性別>
+        <職位>行政人員</職位>
         <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123#7701</電話>
         <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123#7702</電話>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#普通物理學 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#普通物理學">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#高啟洲"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#普通物理學實驗 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#普通物理學實驗">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#高啟洲"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#朱明毅 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#朱明毅">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">myju@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">國立中正大學電機工程博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">嵌入式系統</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">機器人學</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">軟式計算</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">副教授</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 # 7802</電話>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李健興 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李健興">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#計算機概論"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">leecs@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">國立成功大學資訊工程博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">智慧型代理人</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">知識工程</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">網路服務應用</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">教授</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 # 7709</電話>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建億 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李建億">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">leeci@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">國立交通大學資訊科學博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">學習歷程管理</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">網路專題學習</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">行動學習</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">資料探勘</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">合聘副教授</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2133111 # 777</電話>
     </owl:NamedIndividual>
     
 
@@ -720,6 +828,46 @@
     
 
 
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#林朝興 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#林朝興">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計一"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計二"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計實習一"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計實習二"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mikelin@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">美國中佛羅理達州立大學電腦工程博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P2P媒體串流技術</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">即時影像內容偵測與辨識</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">室內定位</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">物聯網</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">行動普適計算</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">雲端計算</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">教授</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 # 7708</電話>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#楊文霖 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#楊文霖">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wlyang@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">美國賓州州立大學電腦科學博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">圖形理論</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">網際網路技術</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">電腦輔助設計</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">教授</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2133111 # 170</電話>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 # 7800</電話>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#正規語言 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#正規語言">
@@ -744,6 +892,46 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#科技法律">
         <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#院核心課程"/>
         <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必選修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計一 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計一">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#林朝興"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計二 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計二">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#林朝興"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計實習一 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計實習一">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#林朝興"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計實習二 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#程式設計實習二">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#林朝興"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
     </owl:NamedIndividual>
     
 
@@ -787,6 +975,16 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#英文課">
         <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#校核心課程"/>
+        <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#計算機概論 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#計算機概論">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#大一課程"/>
+        <授課老師 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#李健興"/>
         <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
     </owl:NamedIndividual>
     
@@ -873,6 +1071,61 @@
     
 
 
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#陳健志 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#陳健志">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">jjchen@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">國立交通大學資訊工程研究所博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4G Wireless Communications and Networks (WiMAX and LTE/LTE-Adv)</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Broadband Wireless Networks</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cloud Computing</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Internet of Things (IOT)</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Personal Communication Networks</專長>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2133111 #609</電話>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 #7799</電話>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">98317799(VoIP)</電話>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#陳宗禧 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#陳宗禧">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chents@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">國立中央大學資訊工程博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">無所不在計算</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">無線網路</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">行動學習</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">行動計算</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">教授</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 # 7812</電話>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#陳榮銘 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#陳榮銘">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#微積分一"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#微積分二"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rmchen@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">國立清華大學電機工程博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">估測理論</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">智慧計算</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">生醫資訊</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">訊號處理</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">資料科學</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">教授</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 # 7801</電話>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#離散數學 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#離散數學">
@@ -888,6 +1141,24 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#體育課">
         <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#校核心課程"/>
         <必:選修 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">必修</必:選修>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#高啟洲 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#高啟洲">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#教授"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#普通物理學"/>
+        <開課 rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#普通物理學實驗"/>
+        <信箱 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cckao@mail.nutn.edu.tw</信箱>
+        <學歷 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">國立成功大學電機工程博士</學歷>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">圖形理論</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">嵌入式系統晶片設計</專長>
+        <專長 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">積體電路電腦輔助設計</專長>
+        <性別 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">男</性別>
+        <職位 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">教授</職位>
+        <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06-2606123 # 7700</電話>
     </owl:NamedIndividual>
     
 
