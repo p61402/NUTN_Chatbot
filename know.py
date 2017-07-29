@@ -78,17 +78,20 @@ def special_triple(answer_class="rdf:實驗室", relation="rdf:管理人員", en
 
 
 def query(command, a1="", a2="", a3=""):
-        if command == 1:
-            answer = triple(a1, a2, a3)
-        elif command == 2:
-            answer = property_of_instance(a1, a2)
-        elif command == 3:
-            answer = properties_of_class(a1)
-        elif command == 4:
-            answer = instances_of_class(a1)
-        elif command == 5:
-            answer = special_triple(a1, a2, a3)
-        else:
-            answer = "bye"
+    if command == 1:
+        answer = triple(a1, a2, a3)
+    elif command == 2:
+        answer = property_of_instance(a1, a2)
+    elif command == 3:
+        answer = properties_of_class(a1)
+    elif command == 4:
+        answer = instances_of_class(a1)
+    elif command == 5:
+        answer = special_triple(a1, a2, a3)
+    else:
+        answer = "bye"
 
-        return answer
+    if not answer:
+        return "沒有答案"
+    else:
+        return " ".join(answer)
