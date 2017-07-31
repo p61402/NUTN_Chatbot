@@ -5,10 +5,9 @@ import query
 
 app = Flask(__name__)
 
-PAGE_ACCESS_TOKEN = "EAAOBui2KGS4BAFcXM446exvn5h7ljcWBXovi3fZBSvQ1otetg9LdcZAMhaJufiPlbaqFwIEpF5TZBZAUvZAZCZAnBCgYyU9JFNgFRL7cuEHT5hseo8ZBarUu9fWwbswAK1rYpWhCSZCd2viOO73ZCZCsHc8vlwX4evP5zuRjN6yCdCIRZADdgsZCdxXtx"
+PAGE_ACCESS_TOKEN = "EAAOBui2KGS4BAMqHiNt451LzvtalZAnXEsNZAZCSkk4yPdcxO3jcZBXno5p4Sf3GdEswCta5aToT4nLck0x70ztyi05v5SislDaXa3dEVCG1IandBWQMZC8fiOgFbfiE8o9Vu2MVhVpIdBrVqC52ZAfRKS10bNYNVsYhcEbeH0IXqmZBJPxbn5i"
 
 bot = Bot(PAGE_ACCESS_TOKEN)
-
 
 @app.route('/', methods=['GET'])
 def verify():

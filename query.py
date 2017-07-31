@@ -52,7 +52,7 @@ def question(user_input):
     if maximum_cosine == 0:
         return "沒有答案"
 
-    print(content[most_similar_index])
+    print("最相近句型:", content[most_similar_index])
 
     file = open('corresponding_query_set.txt', 'r', encoding='utf8')
 
