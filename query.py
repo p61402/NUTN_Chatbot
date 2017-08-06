@@ -77,15 +77,8 @@ def question(user_input):
     print("query:", data)
 
     if len(data) <= 5:
-        command = int(data[1])
-        if command == 3 or command == 4:
-            ans = know.query(command, data[2])
-        elif command == 2:
-            ans = know.query(command, data[2], data[3])
-        elif command == 1 or command == 5:
-            ans = know.query(command, data[2], data[3], data[4])
-        else:
-            ans = "不可能"
+        command, *args = data[1:]
+        ans = know.query(int(command), *args)
     else:
         ans = "還沒有這個功能，顆顆"
 

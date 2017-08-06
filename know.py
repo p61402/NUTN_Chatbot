@@ -77,17 +77,17 @@ def special_triple(answer_class="rdf:實驗室", relation="rdf:管理人員", en
     return results
 
 
-def query(command, a1="", a2="", a3=""):
+def query(command, *args):
     if command == 1:
-        answer = triple(a1, a2, a3)
+        answer = triple(*args)
     elif command == 2:
-        answer = property_of_instance(a1, a2)
+        answer = property_of_instance(*args)
     elif command == 3:
-        answer = properties_of_class(a1)
+        answer = properties_of_class(*args)
     elif command == 4:
-        answer = instances_of_class(a1)
+        answer = instances_of_class(*args)
     elif command == 5:
-        answer = special_triple(a1, a2, a3)
+        answer = special_triple(*args)
     else:
         answer = "bye"
 
