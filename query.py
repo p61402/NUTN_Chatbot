@@ -3,16 +3,19 @@ import jieba_system
 import math
 
 
+dir_path = "詞庫\\"
+
+
 def question(user_input):
     user_seg_list = list(jieba_system.start(user_input))
 
     print("使用者斷詞結果:", user_seg_list)
 
-    file = open('知識庫詞庫.txt', 'r', encoding='utf8')
+    file = open(dir_path + '知識庫詞庫.txt', 'r', encoding='utf8')
     words = file.read().splitlines()
     # print(words)
 
-    file = open('question_set.txt', 'r', encoding='utf8')
+    file = open(dir_path + 'question_set.txt', 'r', encoding='utf8')
     content = file.read().splitlines()
     matrix = [[0 for x in range(len(words))] for y in range(len(content))]
     for i in range(len(content)):
@@ -54,14 +57,14 @@ def question(user_input):
 
     print("最相近句型:", content[most_similar_index])
 
-    file = open('corresponding_query_set.txt', 'r', encoding='utf8')
+    file = open(dir_path + 'corresponding_query_set.txt', 'r', encoding='utf8')
 
     queries = file.read().splitlines()
 
     data = queries[most_similar_index].split()
 
     file_name = data[0] + ".txt"
-    file = open(file_name, 'r', encoding='utf8')
+    file = open(dir_path + file_name, 'r', encoding='utf8')
     entity_list = file.read().splitlines()
     # print(entity_list)
     arg = ""

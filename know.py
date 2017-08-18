@@ -1,15 +1,16 @@
 import rdflib
 import ast
 
+dir_path = "知識庫\\"
 g = rdflib.Graph()
-g.parse("南大知識庫第二季.rdf")
+g.parse(dir_path + "南大知識庫第二季.rdf")
 
 
 # 給定Triple的任兩個元素，查詢第三個
-def triple(_subject="rdf:錢炳全", _predicate="?x", _object="rdf:錢炳全的研究室"):
+def triple(_subject="rdf:錢炳全", _predicate="rdf:開課", _object="?x"):
     r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
     SELECT ?x
-    WHERE {{ {} {} {}}}""".format(_subject, _predicate, _object))
+    WHERE {{ {} {} {} }}""".format(_subject, _predicate, _object))
 
     data = ast.literal_eval(r.serialize(format="json").decode("utf8"))
     results = []
@@ -62,13 +63,32 @@ def instances_of_class(class_name="rdf:教授"):
     return results
 
 
-def special_triple(answer_class="rdf:實驗室", relation="rdf:管理人員", entity="rdf:錢炳全"):
+def crazy_triple(_subject="rdf:錢炳全", _relation="rdf:開課", _property="rdf:修別", string="選修"):
+    r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
+    SELECT ?x
+    WHERE {{
+    {} {} ?x .
+    ?x {} ?y .
+    FILTER(REGEX(str(?y), "{}"))
+    }}""".format(_subject, _relation, _property, string))
+
+    data = ast.literal_eval(r.serialize(format="json").decode("utf8"))
+    results = []
+    for i in range(len(data['results']['bindings'])):
+        results.append(data['results']['bindings'][i]['x']['value'][70:])
+    return results
+
+
+# 在某個Class下滿足某個Property條件的一個Triple
+def insane_triple(class_name="rdf:大三課程", _relation="rdf:授課老師", _object="rdf:錢炳全", _property="rdf:修別", string="選修"):
     r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
     SELECT ?x
     WHERE {{
     ?x a {} .
-    ?x {} {}
-    }}""".format(answer_class, relation, entity))
+    ?x {} {} .
+    ?x {} ?y .
+    FILTER(REGEX(str(?y), "{}"))
+    }}""".format(class_name, _relation, _object, _property, string))
 
     data = ast.literal_eval(r.serialize(format="json").decode("utf8"))
     results = []
@@ -87,7 +107,9 @@ def query(command, *args):
     elif command == 4:
         answer = instances_of_class(*args)
     elif command == 5:
-        answer = special_triple(*args)
+        answer = crazy_triple(*args)
+    elif command == 6:
+        answer == insane_triple(*args)
     else:
         answer = "bye"
 

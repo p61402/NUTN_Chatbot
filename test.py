@@ -1,13 +1,10 @@
-import query
-
+import query2
 
 def main():
     print("Welcome to NUTN CSIE Chatbot System.")
     while True:
         user_input = input(">>")
-        if user_input.lower() == "bye":
-            break
-        ans = query.question(user_input)
+        ans = query2.question(user_input)
         print(ans)
 
 

@@ -1,9 +1,11 @@
 import jieba
 
-jieba.load_userdict("知識庫詞庫.txt")
-jieba.load_userdict("人.txt")
-jieba.load_userdict("事.txt")
-jieba.load_userdict("物.txt")
+
+dir_path = "詞庫\\"
+jieba.load_userdict(dir_path + "知識庫詞庫.txt")
+jieba.load_userdict(dir_path + "人.txt")
+jieba.load_userdict(dir_path + "事.txt")
+jieba.load_userdict(dir_path + "物.txt")
 
 
 def start(user_input):
