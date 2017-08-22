@@ -1,9 +1,9 @@
 import rdflib
 import ast
 
-dir_path = "知識庫\\"
+dir_path = "知識庫/"
 g = rdflib.Graph()
-g.parse(dir_path + "南大知識庫第二季.rdf")
+g.parse(dir_path + "南大知識庫第三季.rdf")
 
 
 # 給定Triple的任兩個元素，查詢第三個
@@ -49,12 +49,21 @@ def properties_of_class(class_name="rdf:教授"):
 
 
 # 一個Class下的所有Instances
-def instances_of_class(class_name="rdf:教授"):
-    r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
-    SELECT ?x
-    WHERE {{
-    ?x a {} .
-    }}""".format(class_name))
+def instances_of_class(class_name="rdf:教授", _property="", string=""):
+    if _property:
+        r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
+        SELECT ?x
+        WHERE {{
+        ?x a {} .
+        ?x {} ?y .
+        FILTER(REGEX(str(?y), {}))
+        }}""".format(class_name, _property, string))
+    else:
+        r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
+        SELECT ?x
+        WHERE {{
+        ?x a {} .
+        }}""".format(class_name))
 
     data = ast.literal_eval(r.serialize(format="json").decode("utf8"))
     results = []
@@ -63,6 +72,39 @@ def instances_of_class(class_name="rdf:教授"):
     return results
 
 
+# 一個Instance所屬的Class
+def class_of_instance(instance_name="rdf:錢炳全"):
+    r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
+    SELECT ?class
+    WHERE {{
+    {} a ?class .
+    }}""".format(instance_name))
+
+    data = ast.literal_eval(r.serialize(format="json").decode("utf8"))
+    results = []
+    for i in range(len(data['results']['bindings'])):
+        ans = data['results']['bindings'][i]['class']['value'][70:]
+        if ans:
+            results.append(ans)
+    return results
+
+
+# 一個Class底下的所有Subclass
+def subclasses_of_class(class_name="rdf:課程"):
+    r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
+    SELECT ?subClass
+    WHERE {{
+    ?subClass rdfs:subClassOf {} .
+    }}""".format(class_name))
+
+    data = ast.literal_eval(r.serialize(format="json").decode("utf8"))
+    results = []
+    for i in range(len(data['results']['bindings'])):
+        results.append(data['results']['bindings'][i]['subClass']['value'][70:])
+    return results
+
+
+# 滿足某個Property的一個Triple
 def crazy_triple(_subject="rdf:錢炳全", _relation="rdf:開課", _property="rdf:修別", string="選修"):
     r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
     SELECT ?x
@@ -107,9 +149,13 @@ def query(command, *args):
     elif command == 4:
         answer = instances_of_class(*args)
     elif command == 5:
-        answer = crazy_triple(*args)
+        answer = class_of_instance(*args)
     elif command == 6:
-        answer == insane_triple(*args)
+        answer = subclasses_of_class(*args)
+    elif command == 7:
+        answer = crazy_triple(*args)
+    elif command == 8:
+        answer = insane_triple(*args)
     else:
         answer = "bye"
 

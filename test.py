@@ -1,5 +1,6 @@
 import query2
 
+
 def main():
     print("Welcome to NUTN CSIE Chatbot System.")
     while True:

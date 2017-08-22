@@ -3,7 +3,7 @@ import jieba_system
 import math
 
 
-dir_path = "詞庫\\"
+dir_path = "詞庫/"
 
 
 def question(user_input):

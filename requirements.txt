@@ -15,3 +15,4 @@ requests==2.14.2
 requests-toolbelt==0.7.1
 six==1.10.0
 Werkzeug==0.12.1
+hanziconv==0.3.2

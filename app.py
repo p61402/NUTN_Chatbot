@@ -1,7 +1,7 @@
 import os, sys
 from flask import Flask, request
 from pymessenger import Bot
-import query
+import query2
 
 app = Flask(__name__)
 
@@ -40,7 +40,7 @@ def webhook():
                         messaging_text = 'no text'
 
                     # Echo
-                    response = query.question(messaging_text)
+                    response = query2.question(messaging_text)
                     bot.send_text_message(sender_id, response)
 
     return "ok", 200
