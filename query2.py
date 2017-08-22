@@ -38,11 +38,11 @@ def question(user_input):
     if response:
         return response
 
-    classes = open(dir_path + "類別.txt").read().splitlines()
-    instances = open(dir_path + "實體.txt").read().splitlines()
-    relations = open(dir_path + "關係.txt").read().splitlines()
-    properties = open(dir_path + "特質.txt").read().splitlines()
-    question_words = open(dir_path + "疑問詞.txt").read().splitlines()
+    classes = open(dir_path + "類別.txt", encoding='utf8').read().splitlines()
+    instances = open(dir_path + "實體.txt", encoding='utf8').read().splitlines()
+    relations = open(dir_path + "關係.txt", encoding='utf8').read().splitlines()
+    properties = open(dir_path + "特質.txt", encoding='utf8').read().splitlines()
+    question_words = open(dir_path + "疑問詞.txt", encoding='utf8').read().splitlines()
 
     simp_classes = [HanziConv.toSimplified(c) for c in classes]
     simp_instances = [HanziConv.toSimplified(i) for i in instances]
@@ -80,7 +80,7 @@ def question(user_input):
         response = know.query(command, *arg)
         if response == "沒有答案":
             command = 6
-    elif pattern in ["IQR", "QRI", "RIQ", "IRQ"]:
+    elif pattern in ["IQR", "QRI", "RIQ", "IRQ", "QIR"]:
         print("1")
         command = 1
         arg = [instance_word, relation_word]

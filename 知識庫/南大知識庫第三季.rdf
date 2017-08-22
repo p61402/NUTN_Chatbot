@@ -2011,8 +2011,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#神奈川日式平價料理">
         <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#日式"/>
+        <地址 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">台南市中西區忠義路二段201號</地址>
         <營業時間 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11:00–14:00, 17:00–21:00</營業時間>
-        <營業時間 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">台南市中西區忠義路二段201號</營業時間>
         <電話 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">06 223 1588</電話>
     </owl:NamedIndividual>
     
