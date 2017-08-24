@@ -55,6 +55,7 @@ def question(user_input):
     print("使用者斷詞:", user_seg_list)
 
     pattern = ""
+    user_question_word = ""
     for word in user_seg_list:
         if word in simp_classes:
             pattern += "C"
@@ -68,8 +69,8 @@ def question(user_input):
         elif word in simp_properties:
             pattern += "P"
             property_word = "rdf:" + properties[simp_properties.index(word)]
-        # elif word in simp_question_words:
-        #     pattern += "Q"
+        elif word in simp_question_words:
+            user_question_word = word
 
     print(pattern)
 
