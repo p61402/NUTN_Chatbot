@@ -81,7 +81,7 @@ def question(user_input):
         response = know.query(command, *arg)
         if response == "沒有答案":
             command = 6
-    elif pattern in ["IQ", "QI"]:
+    elif pattern in ["IR", "RI"]:
         print("1")
         command = 1
         arg = [instance_word, relation_word]
@@ -99,7 +99,7 @@ def question(user_input):
         arg = []
 
     if command:
-        response = know.query(command, *arg)
+        response = sentence + " " + know.query(command, *arg)
     else:
         response = "不是正確的句型。"
     return response
