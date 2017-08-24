@@ -68,27 +68,27 @@ def question(user_input):
         elif word in simp_properties:
             pattern += "P"
             property_word = "rdf:" + properties[simp_properties.index(word)]
-        elif word in simp_question_words:
-            pattern += "Q"
+        # elif word in simp_question_words:
+        #     pattern += "Q"
 
     print(pattern)
 
-    if pattern == "CQ":
+    if pattern == "C":
         print("4")
         command = 4
         arg = [class_word]
         response = know.query(command, *arg)
         if response == "沒有答案":
             command = 6
-    elif pattern in ["IQR", "QRI", "RIQ", "IRQ", "QIR"]:
+    elif pattern in ["IQ", "QI"]:
         print("1")
         command = 1
         arg = [instance_word, relation_word]
-    elif pattern == "IPQ":
+    elif pattern in ["IP", "PI"]:
         print("2")
         command = 2
         arg = [instance_word, property_word]
-    elif pattern == "IQ":
+    elif pattern == "I":
         print("5")
         command = 5
         arg = [instance_word]
