@@ -7,6 +7,16 @@ from hanziconv import HanziConv
 
 dir_path = "詞庫/"
 
+patterns = {
+    0: ["我無法回答你的問題"],
+    1: ["IR有以下這些:"],
+    2: ["I的P是:"],
+    3: [],
+    4: ["在C之下有這些Instance:"],
+    5: ["I的Superclass是:"],
+    6: ["在C之下有這些Subclass:"]
+}
+
 
 def not_a_question(user_input):
     user_input = "".join(char for char in user_input if char not in string.punctuation)
@@ -33,6 +43,12 @@ def not_a_question(user_input):
     return False
 
 
+def add_pattern(command, keyword_list):
+    sentence = patterns[command][0]
+    sentence = "".join([keyword_list.get(word, word) for word in sentence])
+    return sentence
+
+
 def question(user_input):
     response = not_a_question(user_input)
     if response:
@@ -43,7 +59,7 @@ def question(user_input):
     relations = open(dir_path + "關係.txt", encoding='utf8').read().splitlines()
     properties = open(dir_path + "特質.txt", encoding='utf8').read().splitlines()
     question_words = open(dir_path + "疑問詞.txt", encoding='utf8').read().splitlines()
-
+    
     simp_classes = [HanziConv.toSimplified(c) for c in classes]
     simp_instances = [HanziConv.toSimplified(i) for i in instances]
     simp_relations = [HanziConv.toSimplified(r) for r in relations]
@@ -54,52 +70,54 @@ def question(user_input):
     user_seg_list = list(jieba_system.start(user_input))
     print("使用者斷詞:", user_seg_list)
 
+    keywords = dict.fromkeys(["C", "I", "R", "P"])
     pattern = ""
     user_question_word = ""
     for word in user_seg_list:
         if word in simp_classes:
             pattern += "C"
-            class_word = "rdf:" + classes[simp_classes.index(word)]
+            keywords["C"] = classes[simp_classes.index(word)]
         elif word in simp_instances:
             pattern += "I"
-            instance_word = "rdf:" + instances[simp_instances.index(word)]
+            keywords["I"] = instances[simp_instances.index(word)]
         elif word in simp_relations:
             pattern += "R"
-            relation_word = "rdf:" + relations[simp_relations.index(word)]
+            keywords["R"] = relations[simp_relations.index(word)]
         elif word in simp_properties:
             pattern += "P"
-            property_word = "rdf:" + properties[simp_properties.index(word)]
+            keywords["P"] = properties[simp_properties.index(word)]
         elif word in simp_question_words:
             user_question_word = word
 
-    print(pattern)
+    print("pattern:", pattern)
 
     if pattern == "C":
-        print("4")
         command = 4
-        arg = [class_word]
-        response = know.query(command, *arg)
-        if response == "沒有答案":
-            command = 6
+        arg = [keywords["C"]]
     elif pattern in ["IR", "RI"]:
-        print("1")
         command = 1
-        arg = [instance_word, relation_word]
+        arg = [keywords["I"], keywords["R"]]
     elif pattern in ["IP", "PI"]:
-        print("2")
         command = 2
-        arg = [instance_word, property_word]
+        arg = [keywords["I"], keywords["P"]]
     elif pattern == "I":
-        print("5")
         command = 5
-        arg = [instance_word]
+        arg = [keywords["I"]]
     else:
         print(pattern, "is not in the valid query format.")
         command = 0
         arg = []
 
-    if command:
-        response = sentence + " " + know.query(command, *arg)
-    else:
-        response = "不是正確的句型。"
+
+    keywords = dict((key, value) for key, value in keywords.items() if value)
+    arg = ["rdf:" + a for a in arg if a]
+
+    response = know.query(command, *arg)
+    if command == 4 and not response:
+        command = 6
+        response = know.query(command, *arg)
+    
+    sentence = add_pattern(command, keywords)
+    response = sentence + response
+    
     return response

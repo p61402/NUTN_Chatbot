@@ -157,9 +157,6 @@ def query(command, *args):
     elif command == 8:
         answer = insane_triple(*args)
     else:
-        answer = "bye"
+        answer = ""
 
-    if not answer:
-        return "沒有答案"
-    else:
-        return " ".join(answer)
+    return "、".join(answer)
