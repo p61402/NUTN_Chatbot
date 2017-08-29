@@ -10,8 +10,9 @@ with open(dir_name + "總詞庫簡體版.txt", "w") as f:
     f4 = open(dir_name + "特質.txt", encoding='utf8').read().splitlines()
     f5 = open(dir_name + "疑問詞.txt", encoding='utf8').read().splitlines()
     f6 = open(dir_name + "冗詞.txt", encoding='utf8').read().splitlines()
+    f7 = open(dir_name + "特質內容.txt", encoding='utf8').read().splitlines()
 
-    x = f1 + f2 + f3 + f4 + f5 + f6
+    x = f1 + f2 + f3 + f4 + f5 + f6 + f7
 
     x = [HanziConv.toSimplified(w) for w in x]
 
