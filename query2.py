@@ -14,10 +14,11 @@ patterns = {
     3: [],
     4: ["在C之下有這些實體:"],
     5: ["I的父類別是:"],
-    6: ["在C之下有這些子類別:"]
+    6: ["在C之下有這些子類別:"],
+    7: ["C的instance個數:"]
 }
 
-quantity_question_words = ["多少", "幾"]
+quantity_question_words = ["多少", "几", "几个", "几堂"]
 
 
 def not_a_question(user_input):
@@ -108,8 +109,7 @@ def question(user_input):
         command = 1
     elif "C" in pattern:
         if user_question_word in quantity_question_words:
-            command = 0
-            print("回答在C之下(滿足Pv)的所有instance數量")
+            command = 7
         else:
             command = 4
     elif "I" in pattern and "P" in pattern:

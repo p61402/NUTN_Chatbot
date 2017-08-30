@@ -114,6 +114,30 @@ def subclasses_of_class(class_name="rdf:課程"):
     return results
 
 
+# 某個Class下滿足一個Property的instance個數
+def count_instances_of_class(class_name="rdf:課程", _property="", string=""):
+    if _property:
+        r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
+        SELECT (COUNT(?x) AS ?COUNT)
+        WHERE {
+        ?x a {} .
+        ?x {} ?y
+        FILTER(REGEX(str(?y), "{}"))
+        }""".format(class_name, _property, string))
+    else:
+        r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
+        SELECT (COUNT(?x) AS ?COUNT)
+        WHERE {{
+        ?x a {}
+        }}""".format(class_name))
+
+    data = ast.literal_eval(r.serialize(format="json").decode("utf8"))
+    results = []
+    for i in range(len(data['results']['bindings'])):
+        results.append(data['results']['bindings'][i]['COUNT']['value'])
+    return results
+
+
 # 在某個Class下的一個Triple
 def IRC(class_name="rdf:大三課程", _relation="rdf:授課老師", _object="rdf:錢炳全"):
     r = g.query("""PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
@@ -178,6 +202,8 @@ def query(command, *args):
         answer = class_of_instance(*args)
     elif command == 6:
         answer = subclasses_of_class(*args)
+    elif command == 7:
+        answer = count_instances_of_class(*args)
     else:
         answer = ""
 
