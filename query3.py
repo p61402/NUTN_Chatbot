@@ -43,8 +43,9 @@ def query_matching(user_query):
 
 
 def question(user_input):
-    if not_a_question(user_input):
-        return
+    response = not_a_question(user_input)
+    if response:
+        return response
 
     classes = open(dir_path + "類別.txt", encoding='utf8').read().splitlines()
     instances = open(dir_path + "實體.txt", encoding='utf8').read().splitlines()
@@ -89,4 +90,4 @@ def question(user_input):
     print("user query:", pattern)
     match_number = query_matching(pattern)
     response = know2.make_query(match_number, *keywords)
-    return response
+    return " ".join(response)
