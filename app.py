@@ -91,10 +91,9 @@ def send_list(sender_id, elements):
                 "subtitle":"哈哈哈哈哈哈",
                 "default_action": {
                   "type": "web_url",
-                  "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
+                  "url": "https://www.google.com",
                   "messenger_extensions": True,
                   "webview_height_ratio": "tall",
-                  "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                 },
                 "buttons":[
                   {
