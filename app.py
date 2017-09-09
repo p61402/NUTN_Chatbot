@@ -59,21 +59,34 @@ def send_text_message(sender_id, message_data):
 
 
 def send_quick_reply(sender_id):
-    quick_reply = json.dumps({
-        "type": "quick_reply",
-        "content": {
-            "type": "text",
-            "text": "What's your favourite color?"
-        },
-        "msgid": "qr_212",
-        "options": [
-            "Red",
-            "Green",
-            "Yellow",
-            "Blue"
-        ]
-    })
-    call_send_api(sender_id, quick_reply)
+    quick_reply = [{
+        "content_type": "text",
+        "title": "Meme",
+        "payload": "meme",
+    },
+    {
+        "content_type": "text",
+        "title": "Motivation",
+        "payload": "motivation",
+    },
+    {
+        "content_type": "text",
+        "title": "Shower Thought",
+        "payload": "Shower_Thought",
+    },
+    {
+        "content_type": "text",
+        "title": "Jokes",
+        "payload": "Jokes",
+    }
+    ]
+
+    data = json.dumps({
+                "recipient": {"id": sender_id},
+                "message": {"text": "hello",
+                            "quick_replies": quick_reply}
+            })
+    call_send_api(sender_id, data)
 
 
 def call_send_api(sender_id, message_data):
