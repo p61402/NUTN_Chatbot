@@ -46,9 +46,16 @@ def webhook():
                     else:
                         # Echo
                         response = query3.question(messaging_text)
-                        bot.send_text_message(sender_id, response)
+                        send_text_message(sender_id, response)
+                        # bot.send_text_message(sender_id, response)
 
     return "ok", 200
+
+
+def send_text_message(sender_id, message_data):
+    response_message = json.dumps({"recipient": {"id": sender_id},
+                                   "message": {"text": message_data}})
+    call_send_api(sender_id, response_message)
 
 
 def send_quick_reply(sender_id):
