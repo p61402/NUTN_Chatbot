@@ -41,27 +41,37 @@ def webhook():
                         messaging_text = 'no text'
 
                     if messaging_text == "QQ":
-                        quick_reply = {
-                            "type": "quick_reply",
-                            "content": {
-                                "type": "text",
-                                "text": "What's your favourite color?"
-                            },
-                            "msgid": "qr_212",
-                            "options": [
-                                "Red",
-                                "Green",
-                                "Yellow",
-                                "Blue"
-                            ]
-                        }
-                        bot.send_generic_message(sender_id, json.dumps(quick_reply))
+                        send_quick_reply(sender_id)
                     else:
                         # Echo
                         response = query3.question(messaging_text)
                         bot.send_text_message(sender_id, response)
 
     return "ok", 200
+
+
+def send_quick_reply(sender_id):
+    quick_reply = json.dumps({
+        "type": "quick_reply",
+        "content": {
+            "type": "text",
+            "text": "What's your favourite color?"
+        },
+        "msgid": "qr_212",
+        "options": [
+            "Red",
+            "Green",
+            "Yellow",
+            "Blue"
+        ]
+    })
+    call_send_api(sender_id, quick_reply)
+
+
+def call_send_api(sender_id, message_data):
+    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token={token}'.format(token=PAGE_ACCESS_TOKEN)
+    req = request.post(post_message_url, headers={"Content-Type": "application/json"}, data=message_data)
+    print("[{}] Reply to {}: {}", req.status_code, sender_id, message_data)
 
 
 def log(message):
