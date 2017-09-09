@@ -1,5 +1,6 @@
 import os, sys
 from flask import Flask, request
+import requests
 from pymessenger import Bot
 import query3
 import json
@@ -70,7 +71,7 @@ def send_quick_reply(sender_id):
 
 def call_send_api(sender_id, message_data):
     post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token={token}'.format(token=PAGE_ACCESS_TOKEN)
-    req = request.post(post_message_url, headers={"Content-Type": "application/json"}, data=message_data)
+    req = requests.post(post_message_url, headers={"Content-Type": "application/json"}, data=message_data)
     print("[{}] Reply to {}: {}", req.status_code, sender_id, message_data)
 
 
