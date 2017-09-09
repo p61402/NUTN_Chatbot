@@ -94,9 +94,10 @@ def question(user_input):
     if not response and match_number == 0:
         match_number = 15
         response = know2.make_query(match_number, *keywords)
+    else:
+        response = ", ".join(response)
 
     if not response or response == "Nope":
         return "不知道耶QAQ", match_number
 
-    response = ", ".join(response)
     return response, match_number
