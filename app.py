@@ -46,7 +46,6 @@ def webhook():
                     if match_number == 15:
                         send_quick_reply(sender_id, response)
                     else:
-                        response = ", ".join(response)
                         send_text_message(sender_id, response)
 
     return "ok", 200

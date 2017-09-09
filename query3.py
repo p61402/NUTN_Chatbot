@@ -45,7 +45,7 @@ def query_matching(user_query):
 def question(user_input):
     response = not_a_question(user_input)
     if response:
-        return response
+        return response, -2
 
     classes = open(dir_path + "類別.txt", encoding='utf8').read().splitlines()
     instances = open(dir_path + "實體.txt", encoding='utf8').read().splitlines()
@@ -97,4 +97,6 @@ def question(user_input):
 
     if not response or response == "Nope":
         return "不知道耶QAQ", match_number
+
+    response = ", ".join(response)
     return response, match_number
