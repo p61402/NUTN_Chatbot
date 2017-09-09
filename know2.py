@@ -312,8 +312,6 @@ query_functions = {-1: invalid_query,
 
 def make_query(query_number, *args):
     response = query_functions[query_number](*args)
-    if not response and query_number == 0:
-        response = query_functions[15](*args)
     return response
 
 

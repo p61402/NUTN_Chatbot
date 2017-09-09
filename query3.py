@@ -90,4 +90,11 @@ def question(user_input):
     print("user query:", pattern)
     match_number = query_matching(pattern)
     response = know2.make_query(match_number, *keywords)
-    return " ".join(response)
+
+    if not response and match_number == 0:
+        match_number = 15
+        response = know2.make_query(match_number, *keywords)
+
+    if not response or response == "Nope":
+        return "不知道耶QAQ", match_number
+    return response, match_number

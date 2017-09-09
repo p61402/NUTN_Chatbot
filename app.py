@@ -41,13 +41,13 @@ def webhook():
                     else:
                         messaging_text = 'no text'
 
-                    if messaging_text == "QQ":
-                        send_quick_reply(sender_id)
+                    # Echo
+                    response, match_number = query3.question(messaging_text)
+                    if match_number == 15:
+                        send_quick_reply(sender_id, response)
                     else:
-                        # Echo
-                        response = query3.question(messaging_text)
+                        response = ", ".join(response)
                         send_text_message(sender_id, response)
-                        # bot.send_text_message(sender_id, response)
 
     return "ok", 200
 
@@ -58,28 +58,14 @@ def send_text_message(sender_id, message_data):
     call_send_api(sender_id, response_message)
 
 
-def send_quick_reply(sender_id):
-    quick_reply = [{
-        "content_type": "text",
-        "title": "Meme",
-        "payload": "meme",
-    },
-    {
-        "content_type": "text",
-        "title": "Motivation",
-        "payload": "motivation",
-    },
-    {
-        "content_type": "text",
-        "title": "Shower Thought",
-        "payload": "Shower_Thought",
-    },
-    {
-        "content_type": "text",
-        "title": "Jokes",
-        "payload": "Jokes",
-    }
-    ]
+def send_quick_reply(sender_id, options):
+    quick_reply = []
+    for option in options:
+        quick_reply.append({
+            "content_type": "text",
+            "title": option,
+            "payload": option,
+        })
 
     data = json.dumps({
                 "recipient": {"id": sender_id},
