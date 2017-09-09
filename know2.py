@@ -6,8 +6,8 @@ g = rdflib.Graph()
 g.parse(dir_path + "南大知識庫第三季.rdf")
 
 
-def invalid_query(*args):
-    return "Nope"
+def invalid_query():
+    return []
 
 
 # 一個Class底下的所有Subclass

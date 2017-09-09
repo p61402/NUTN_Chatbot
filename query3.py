@@ -97,7 +97,7 @@ def question(user_input):
     else:
         response = ", ".join(response)
 
-    if not response or response == "Nope":
+    if not response:
         return "不知道耶QAQ", match_number
 
     return response, match_number
