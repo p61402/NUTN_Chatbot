@@ -43,7 +43,7 @@ def webhook():
 
                     if messaging_text == "QQ":
                         send_list(sender_id, 0)
-                        return "ok", 200
+
                     # Echo
                     response, match_number = query3.question(messaging_text)
                     if match_number == 15:
@@ -79,7 +79,7 @@ def send_quick_reply(sender_id, options):
 
 def send_list(sender_id, elements):
     data_list = json.dumps({"recipient": {"id": sender_id},
-      "message":{
+      "message": {
         "attachment":{
           "type":"template",
           "payload":{
