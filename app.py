@@ -71,83 +71,48 @@ def send_quick_reply(sender_id, options):
 
     data = json.dumps({
                 "recipient": {"id": sender_id},
-                "message": {"text": "hello",
+                "message": {"text": "請選擇!",
                             "quick_replies": quick_reply}
             })
     call_send_api(sender_id, data)
 
 
 def send_list(sender_id, elements):
-    data_list = json.dumps({
-      "recipient": {"id": sender_id},
-      "message": {
-        "attachment": {
-          "type": "template",
-          "payload": {
-            "template_type": "list",
-            "top_element_style": "compact",
-            "elements": [
-              {
-                "title": "Classic T-Shirt Collection",
-                "subtitle": "See all our colors",
-                "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
-                "buttons": [
-                  {
-                    "title": "View",
-                    "type": "web_url",
-                    "url": "https://peterssendreceiveapp.ngrok.io/collection",
-                    "messenger_extensions": True,
-                    "webview_height_ratio": "tall",
-                    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                  }
-                ]
-              },
-              {
-                "title": "Classic White T-Shirt",
-                "subtitle": "See all our colors",
+    data_list = json.dumps({"recipient": {"id": sender_id},
+      "message":{
+        "attachment":{
+          "type":"template",
+          "payload":{
+            "template_type":"generic",
+            "elements":[
+               {
+                "title":"我是QOO",
+                "image_url":"http://2.bp.blogspot.com/-bubsfFNnyzA/VfqziE7FOyI/AAAAAAAGK_M/lfuJ6hFnc48/s1600/TF003323.png",
+                "subtitle":"哈哈哈哈哈哈",
                 "default_action": {
                   "type": "web_url",
-                  "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
-                  "messenger_extensions": True,
-                  "webview_height_ratio": "tall",
-                  "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                }
-              },
-              {
-                "title": "Classic Blue T-Shirt",
-                "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
-                "subtitle": "100% Cotton, 200% Comfortable",
-                "default_action": {
-                  "type": "web_url",
-                  "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+                  "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
                   "messenger_extensions": True,
                   "webview_height_ratio": "tall",
                   "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                 },
-                "buttons": [
+                "buttons":[
                   {
-                    "title": "Shop Now",
-                    "type": "web_url",
-                    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-                    "messenger_extensions": True,
-                    "webview_height_ratio": "tall",
-                    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                    "type":"web_url",
+                    "url":"https://www.google.com",
+                    "title":"View Website"
+                  },{
+                    "type":"postback",
+                    "title":"Start Chatting",
+                    "payload":"DEVELOPER_DEFINED_PAYLOAD"
                   }
                 ]
-              }
-            ],
-             "buttons": [
-              {
-                "title": "View More",
-                "type": "postback",
-                "payload": "payload"
               }
             ]
           }
         }
       }
     })
-
     call_send_api(sender_id, data_list)
 
 
