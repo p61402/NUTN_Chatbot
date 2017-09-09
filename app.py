@@ -2,6 +2,7 @@ import os, sys
 from flask import Flask, request
 from pymessenger import Bot
 import query3
+import json
 
 app = Flask(__name__)
 
@@ -39,9 +40,26 @@ def webhook():
                     else:
                         messaging_text = 'no text'
 
-                    # Echo
-                    response = query3.question(messaging_text)
-                    bot.send_text_message(sender_id, response)
+                    if messaging_text == "QQ":
+                        quick_reply = {
+                            "type": "quick_reply",
+                            "content": {
+                                "type": "text",
+                                "text": "What's your favourite color?"
+                            },
+                            "msgid": "qr_212",
+                            "options": [
+                                "Red",
+                                "Green",
+                                "Yellow",
+                                "Blue"
+                            ]
+                        }
+                        bot.send_generic_message(sender_id, json.dumps(quick_reply))
+                    else:
+                        # Echo
+                        response = query3.question(messaging_text)
+                        bot.send_text_message(sender_id, response)
 
     return "ok", 200
 
