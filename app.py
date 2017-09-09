@@ -43,13 +43,13 @@ def webhook():
 
                     if messaging_text == "QQ":
                         send_list(sender_id, 0)
-
-                    # Echo
-                    response, match_number = query3.question(messaging_text)
-                    if match_number == 15:
-                        send_quick_reply(sender_id, response)
                     else:
-                        send_text_message(sender_id, response)
+                        # Echo
+                        response, match_number = query3.question(messaging_text)
+                        if match_number == 15:
+                            send_quick_reply(sender_id, response)
+                        else:
+                            send_text_message(sender_id, response)
 
     return "ok", 200
 
