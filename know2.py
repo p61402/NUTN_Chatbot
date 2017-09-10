@@ -59,6 +59,24 @@ def class_relation(_subject="rdf:實驗室"):
     return list(set(results))
 
 
+def instance_all_properties(instance="rdf:勝利早點"):
+    r = g.query("""
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
+    SELECT ?p ?v
+    WHERE{{
+    ?p a owl:DatatypeProperty .
+    {} ?p ?v .
+    }}""".format(instance))
+
+    data = ast.literal_eval(r.serialize(format="json").decode("utf8"))
+    results = []
+    for i in range(len(data['results']['bindings'])):
+        results.append((data['results']['bindings'][i]['p']['value'][70:], data['results']['bindings'][i]['v']['value']))
+    return results
+
+
 # 一個Instance所屬的Class
 def instance_superclass(instance_name="rdf:錢炳全"):
     r = g.query("""
@@ -307,7 +325,8 @@ query_functions = {-1: invalid_query,
                    12: class_relation_class_instance_property_propertyValue,
                    13: instance_relation,
                    14: class_relation,
-                   15: class_subclass}
+                   15: class_subclass,
+                   16: instance_all_properties}
 
 
 def make_query(query_number, *args):

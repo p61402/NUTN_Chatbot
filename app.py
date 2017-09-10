@@ -3,6 +3,7 @@ from flask import Flask, request
 import requests
 from pymessenger import Bot
 import query3
+import know2
 import json
 
 app = Flask(__name__)
@@ -48,8 +49,26 @@ def webhook():
                         response, match_number = query3.question(messaging_text)
                         if match_number == 15:
                             send_quick_reply(sender_id, response)
+                        elif match_number == 1:
+                            send_text_message(sender_id, ", ".join(response[0]))
+                            send_button(sender_id, response[1])
                         else:
+                            if match_number != -1:
+                                response = ", ".join(response)
                             send_text_message(sender_id, response)
+                elif messaging_event.get('postback'):
+                    if 'payload' in messaging_event['postback']:
+                        payload_command = messaging_event['postback']['payload']
+                    else:
+                        payload_command = 'no payload'
+
+                    payload_command = payload_command.split()
+                    if payload_command[0] == 'detail':
+                        properties = know2.instance_all_properties(payload_command[1])
+                        response_text = ""
+                        for p in properties:
+                            response_text += p[0] + " : " + p[1] + "\n"
+                        send_text_message(sender_id, response_text)
 
     return "ok", 200
 
@@ -58,6 +77,37 @@ def send_text_message(sender_id, message_data):
     response_message = json.dumps({"recipient": {"id": sender_id},
                                    "message": {"text": message_data}})
     call_send_api(sender_id, response_message)
+
+
+def send_button(sender_id, instance):
+    data = json.dumps({
+      "recipient": {
+        "id": sender_id
+      },
+      "message": {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "button",
+            "text": "列出" + instance[4:] + "的資料?",
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "好",
+                "payload": "detail" + " " + instance
+              },
+              {
+                "type": "postback",
+                "title": "不要",
+                "payload": "do nothing"
+              }
+            ]
+          }
+        }
+      }
+    })
+
+    call_send_api(sender_id, data)
 
 
 def send_quick_reply(sender_id, options):
