@@ -53,7 +53,7 @@ def webhook():
                             send_text_message(sender_id, ", ".join(response[0]))
                             send_button(sender_id, response[1])
                         else:
-                            if match_number != -1 or -2:
+                            if match_number != -1 and match_number != -2:
                                 response = ", ".join(response)
                             send_text_message(sender_id, response)
                 elif messaging_event.get('postback'):
