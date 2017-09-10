@@ -96,7 +96,7 @@ def question(user_input):
         response = know2.make_query(match_number, *keywords)
 
     if match_number == 1:
-        response.append(keywords)
+        response.append("".join(keywords))
 
     if not response:
         return "不知道耶QAQ", match_number
