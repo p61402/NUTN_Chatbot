@@ -65,7 +65,7 @@ def webhook():
                     payload_command = payload_command.split()
                     if payload_command[0] == 'detail':
                         properties = know2.instance_all_properties(payload_command[1])
-                        response_text = ""
+                        response_text = payload_command[1] + "\n"
                         for p in properties:
                             response_text += p[0] + " : " + p[1] + "\n"
                         send_text_message(sender_id, response_text)
