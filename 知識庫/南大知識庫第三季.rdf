@@ -2270,9 +2270,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#肯德基-台南崇明店 -->
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#肯德基台南崇明店 -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#肯德基-台南崇明店">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#肯德基台南崇明店">
         <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#速食"/>
         <地址 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">台南市東區崇明路376號</地址>
         <營業時間 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">一-五09:30-23:30, 六-日09:00-23:30</營業時間>
@@ -2712,9 +2712,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#長春健康素食餐飲連鎖&#45;&#45;大同店 -->
+    <!-- http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#長春健康素食餐飲連鎖大同店 -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#長春健康素食餐飲連鎖--大同店">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#長春健康素食餐飲連鎖大同店">
         <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#中式"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#素食"/>
         <地址 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">台南市東區大同路一段201號</地址>
