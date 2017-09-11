@@ -7,6 +7,7 @@ from hanziconv import HanziConv
 
 
 dir_path = "詞庫/"
+quantity_question_words = ["多少", "几", "几个", "几堂", "几位"]
 
 
 def not_a_question(user_input):
@@ -97,8 +98,11 @@ def question(user_input):
 
     if match_number == 1:
         response.append("".join(keywords))
+    elif user_question_word in quantity_question_words and match_number in [0, 4, 7, 8, 9, 10, 11, 12]:
+        response = str(len(response))
 
     if not response:
-        return "不知道耶QAQ", match_number
+        unknown_responses = ["不知道耶QAQ", "在下實在是不明白您的意思。", "可以請您更簡單的描述您的問題嗎?", "抱歉我理解力不夠, 可以講清楚一點?"]
+        return random.choice(unknown_responses), match_number
 
     return response, match_number

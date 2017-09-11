@@ -6,7 +6,7 @@ g = rdflib.Graph()
 g.parse(dir_path + "南大知識庫第三季.rdf")
 
 
-def invalid_query():
+def invalid_query(*args):
     return []
 
 
@@ -98,27 +98,15 @@ def instance_superclass(instance_name="rdf:錢炳全"):
 def instance_relation(_subject="rdf:離散數學"):
     r1 = g.query("""
     PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
-    SELECT ?p
+    SELECT DISTINCT ?p
     WHERE {{
     {} ?p ?o
     }}""".format(_subject))
 
-    r2 = g.query("""
-    PREFIX rdf: <http://www.semanticweb.org/user/ontologies/2017/6/untitled-ontology-8#>
-    SELECT ?p
-    WHERE {{
-    ?o ?p {}
-    }}""".format(_subject))
-
-    data1 = ast.literal_eval(r1.serialize(format="json").decode("utf8"))
-    data2 = ast.literal_eval(r2.serialize(format="json").decode("utf8"))
+    data = ast.literal_eval(r1.serialize(format="json").decode("utf8"))
     results = []
-    for i in range(len(data1['results']['bindings'])):
-        ans = data1['results']['bindings'][i]['p']['value'][70:]
-        if ans:
-            results.append(ans)
-    for i in range(len(data2['results']['bindings'])):
-        ans = data2['results']['bindings'][i]['p']['value'][70:]
+    for i in range(len(data['results']['bindings'])):
+        ans = data['results']['bindings'][i]['p']['value'][70:]
         if ans:
             results.append(ans)
     return results

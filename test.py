@@ -1,7 +1,9 @@
 import query3
+import know2
 
 
 def main():
+    print(know2.instance_relation("rdf:錢炳全"))
     print("Welcome to NUTN CSIE Chatbot System.")
     while True:
         user_input = input(">>")

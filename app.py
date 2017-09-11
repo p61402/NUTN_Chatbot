@@ -42,33 +42,39 @@ def webhook():
                     else:
                         messaging_text = 'no text'
 
-                    if messaging_text == "QQ":
-                        send_list(sender_id, 0)
+                    # Echo
+                    response, match_number = query3.question(messaging_text)
+                    if match_number == 15:
+                        send_quick_reply(sender_id, response)
+                    elif match_number == 1:
+                        send_text_message(sender_id, response[0])
+                        send_button(sender_id, response[1])
                     else:
-                        # Echo
-                        response, match_number = query3.question(messaging_text)
-                        if match_number == 15:
-                            send_quick_reply(sender_id, response)
-                        elif match_number == 1:
-                            send_text_message(sender_id, response[0])
-                            send_button(sender_id, response[1])
-                        else:
-                            if match_number != -1 and match_number != -2:
-                                response = ", ".join(response)
-                            send_text_message(sender_id, response)
+                        if match_number != -1 and match_number != -2:
+                            response = ", ".join(response)
+                        send_text_message(sender_id, response)
                 elif messaging_event.get('postback'):
                     if 'payload' in messaging_event['postback']:
                         payload_command = messaging_event['postback']['payload']
                     else:
                         payload_command = 'no payload'
 
-                    payload_command = payload_command.split()
-                    if payload_command[0] == 'detail':
-                        properties = know2.instance_all_properties(payload_command[1])
-                        response_text = payload_command[1] + "\n"
-                        for p in properties:
-                            response_text += p[0] + " : " + p[1] + "\n"
-                        send_text_message(sender_id, response_text)
+                    if payload_command == "do nothing":
+                        send_text_message(sender_id, "收到!")
+                    else:
+                        payload_command = payload_command.split()
+                        if payload_command[0] == 'detail':
+                            properties = know2.instance_all_properties(payload_command[1])
+                            response_text = payload_command[1][4:] + "的資料如下：" + "\n"
+                            for p in properties:
+                                response_text += p[0] + " : " + p[1] + "\n"
+                            send_text_message(sender_id, response_text)
+                        elif payload_command[0] == 'relation':
+                            relations = know2.instance_relation(payload_command[1])
+                            response_text = payload_command[1][4:] + "的關係如下：" + "\n"
+                            for r in relations:
+                                response_text += r + "\n"
+                            send_text_message(sender_id, response_text)
 
     return "ok", 200
 
@@ -81,30 +87,35 @@ def send_text_message(sender_id, message_data):
 
 def send_button(sender_id, instance):
     data = json.dumps({
-      "recipient": {
-        "id": sender_id
-      },
-      "message": {
-        "attachment": {
-          "type": "template",
-          "payload": {
-            "template_type": "button",
-            "text": "列出" + instance[4:] + "的資料?",
-            "buttons": [
-              {
-                "type": "postback",
-                "title": "好",
-                "payload": "detail" + " " + instance
-              },
-              {
-                "type": "postback",
-                "title": "不要",
-                "payload": "do nothing"
-              }
-            ]
-          }
+        "recipient": {
+            "id": sender_id
+            },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "button",
+                    "text": "已經查詢到" + instance[4:] + "的相關資訊。",
+                    "buttons": [
+                        {
+                            "type": "postback",
+                            "title": "列出" + instance[4:] + "的資料",
+                            "payload": "detail" + " " + instance
+                        },
+                        {
+                            "type": "postback",
+                            "title": "查看" + instance[4:] + "的關係",
+                            "payload": "relation" + " " + instance
+                        },
+                        {
+                            "type": "postback",
+                            "title": "什麼也不做",
+                            "payload": "do nothing"
+                        }
+                    ]
+                }
+            }
         }
-      }
     })
 
     call_send_api(sender_id, data)
