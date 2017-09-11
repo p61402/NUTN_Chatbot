@@ -35,6 +35,8 @@ def webhook():
                 sender_id = messaging_event['sender']['id']
                 recipient_id = messaging_event['recipient']['id']
 
+                send_actions(sender_id)
+
                 if messaging_event.get('message'):
                     # Extracting text message
                     if 'text' in messaging_event['message']:
@@ -77,6 +79,17 @@ def webhook():
                             send_text_message(sender_id, response_text)
 
     return "ok", 200
+
+
+def send_actions(sender_id):
+    response_message = json.dumps({
+      "recipient": {
+        "id": sender_id
+      },
+      "sender_action": "typing_on"
+    })
+
+    call_send_api(sender_id, response_message)
 
 
 def send_text_message(sender_id, message_data):
@@ -188,4 +201,4 @@ def log(message):
 
 
 if __name__ == "__main__":
-    app.run(debug = True, port = 80)
+    app.run(debug=True, port=80)
