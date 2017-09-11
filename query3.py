@@ -103,6 +103,7 @@ def question(user_input):
 
     if not response:
         unknown_responses = ["不知道耶QAQ", "在下實在是不明白您的意思。", "可以請您更簡單的描述您的問題嗎?", "抱歉我理解力不夠, 可以講清楚一點?"]
+        match_number = -1
         return random.choice(unknown_responses), match_number
 
     return response, match_number
