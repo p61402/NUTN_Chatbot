@@ -67,6 +67,7 @@ def webhook():
                     if payload_command == "do nothing":
                         send_text_message(sender_id, "收到!")
                     else:
+                        print("Payload:", payload_command)
                         payload_command = payload_command.split()
                         if len(payload_command) == 1:
                             c, k = query3.find_class(payload_command[0])
