@@ -117,12 +117,18 @@ def question(user_input):
             user_question_word = word
 
     if is_followup or (not keywords and user_question_word):
-        pattern_file = open(record_path + 'test_pattern.txt', 'rw+', encoding='utf8')
-        pattern_file.write(" ".join(pattern) + '\n')
-        pattern_file.write(" ".join(keywords) + '\n')
-        record_file = open(record_path + 'test_record.txt', 'rw+', encoding='utf8')
-        records = record_file.read().splitlines()
+        with open(record_path + 'test_pattern.txt', 'w+', encoding='utf8') as pf:
+            pf.write(" ".join(pattern) + '\n')
+            pf.write(" ".join(keywords) + '\n')
+        with open(record_path + 'test_record.txt', 'r+', encoding='utf8') as rf:
+            records = rf.read().splitlines()
         return records, 87
+
+    with open(record_path + 'test_record.txt', 'w+', encoding='utf8') as f:
+        for keyword in keywords:
+            c, _ = find_class(keyword)
+            if c:
+                f.write(keyword + '\n')
 
     print("user query:", pattern)
     match_number, keywords = query_matching(pattern, keywords)
