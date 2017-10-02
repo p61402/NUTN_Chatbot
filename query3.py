@@ -1,3 +1,4 @@
+import os
 import know2
 import jieba_system
 import random
@@ -117,18 +118,21 @@ def question(user_input):
             user_question_word = word
 
     if is_followup or (not keywords and user_question_word):
-        with open(record_path + 'test_pattern.txt', 'w+', encoding='utf8') as pf:
+        if not os.path.exists(record_path + 'test_pattern.txt') or not os.path.exists(record_path + 'test_record.txt'):
+            return None, 87
+        with open(record_path + 'test_pattern.txt', 'w', encoding='utf8') as pf:
             pf.write(" ".join(pattern) + '\n')
             pf.write(" ".join(keywords) + '\n')
-        with open(record_path + 'test_record.txt', 'w+', encoding='utf8') as rf:
+        with open(record_path + 'test_record.txt', 'r', encoding='utf8') as rf:
             records = rf.read().splitlines()
         return records, 87
 
-    with open(record_path + 'test_record.txt', 'w+', encoding='utf8') as f:
-        for keyword in keywords:
-            c, _ = find_class(keyword)
-            if c:
-                f.write(keyword + '\n')
+    if os.path.exists(record_path + 'test_record.txt'):
+        with open(record_path + 'test_record.txt', 'w', encoding='utf8') as f:
+            for keyword in keywords:
+                c, _ = find_class(keyword)
+                if c:
+                    f.write(keyword + '\n')
 
     print("user query:", pattern)
     match_number, keywords = query_matching(pattern, keywords)

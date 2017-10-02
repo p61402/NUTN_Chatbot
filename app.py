@@ -47,7 +47,10 @@ def webhook():
                     # Echo
                     response, match_number = query3.question(messaging_text)
                     if match_number == 52 or match_number == 87:
-                        send_quick_reply(sender_id, response)
+                        if response:
+                            send_quick_reply(sender_id, response)
+                        else:
+                            send_text_message("沒東西")
                     elif match_number == 1:
                         send_text_message(sender_id, response[0])
                         send_button(sender_id, response[1])
