@@ -41,23 +41,35 @@ def webhook():
                     # Extracting text message
                     if 'text' in messaging_event['message']:
                         messaging_text = messaging_event['message']['text']
-                    else:
-                        messaging_text = 'no text'
-
-                    # Echo
-                    response, match_number = query3.question(messaging_text)
-                    if match_number == 52 or match_number == 87:
-                        if response:
-                            send_quick_reply(sender_id, response)
+                        # Echo
+                        response, match_number = query3.question(messaging_text)
+                        if match_number == 52 or match_number == 87:
+                            if response:
+                                send_quick_reply(sender_id, response)
+                            else:
+                                send_text_message(sender_id, "沒東西")
+                        elif match_number == 1:
+                            send_text_message(sender_id, response[0])
+                            send_button(sender_id, response[1])
                         else:
-                            send_text_message(sender_id, "沒東西")
-                    elif match_number == 1:
-                        send_text_message(sender_id, response[0])
-                        send_button(sender_id, response[1])
-                    else:
-                        if match_number != -1 and match_number != -2:
-                            response = ", ".join(response)
-                        send_text_message(sender_id, response)
+                            if match_number != -1 and match_number != -2:
+                                response = ", ".join(response)
+                            send_text_message(sender_id, response)
+                    elif 'quick_reply' in messaging_event['message'] and 'payload' in messaging_event['message']['quick_reply']:
+                        payload_command = messaging_event['message']['quick_reply']['payload']
+                        if len(payload_command) == 1:
+                            c, k = query3.find_class(payload_command[0])
+                            if c and k:
+                                pattern_file = open('record/test_pattern.txt', 'r')
+                                pattern, keywords = pattern_file.read().splitlines()
+                                pattern, keywords = pattern.split(), keywords.split()
+                                for i in range(len(pattern)):
+                                    if pattern[i] == "N":
+                                        pattern[i], keywords[i] = c, k
+                                send_text_message(sender_id, "".join(keywords))
+                            else:
+                                send_text_message(sender_id, "無法度")
+
                 elif messaging_event.get('postback'):
                     if 'payload' in messaging_event['postback']:
                         payload_command = messaging_event['postback']['payload']
@@ -80,24 +92,6 @@ def webhook():
                             for r in relations:
                                 response_text += r + "\n"
                             send_text_message(sender_id, response_text)
-                elif messaging_event.get("message"):
-                    if 'quick_reply' in messaging_event['message'] and 'payload' in messaging_event['message']['quick_reply']:
-                        payload_command = messaging_event['message']['quick_reply']['payload']
-                    else:
-                        payload_command = "no payload"
-                    
-                    if len(payload_command) == 1:
-                        c, k = query3.find_class(payload_command[0])
-                        if c and k:
-                            pattern_file = open('record/test_pattern.txt', 'r')
-                            pattern, keywords = pattern_file.read().splitlines()
-                            pattern, keywords = pattern.split(), keywords.split()
-                            for i in range(len(pattern)):
-                                if pattern[i] == "N":
-                                    pattern[i], keywords[i] = c, k
-                            send_text_message(sender_id, "".join(keywords))
-                        else:
-                            send_text_message(sender_id, "無法度")
 
     return "ok", 200
 
