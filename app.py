@@ -46,7 +46,7 @@ def webhook():
 
                     # Echo
                     response, match_number = query3.question(messaging_text)
-                    if match_number == 15:
+                    if match_number == 52 or match_number == 87:
                         send_quick_reply(sender_id, response)
                     elif match_number == 1:
                         send_text_message(sender_id, response[0])
@@ -65,18 +65,31 @@ def webhook():
                         send_text_message(sender_id, "收到!")
                     else:
                         payload_command = payload_command.split()
-                        if payload_command[0] == 'detail':
-                            properties = know2.instance_all_properties(payload_command[1])
-                            response_text = payload_command[1][4:] + "的資料如下：" + "\n"
-                            for p in properties:
-                                response_text += p[0] + " : " + p[1] + "\n"
-                            send_text_message(sender_id, response_text)
-                        elif payload_command[0] == 'relation':
-                            relations = know2.instance_relation(payload_command[1])
-                            response_text = payload_command[1][4:] + "的關係如下：" + "\n"
-                            for r in relations:
-                                response_text += r + "\n"
-                            send_text_message(sender_id, response_text)
+                        if len(payload_command) == 1:
+                            c, k = query3.find_class(payload_command[0])
+                            if c and k:
+                                pattern_file = open('record/test_pattern.txt', 'r')
+                                pattern, keywords = pattern_file.read().splitlines()
+                                pattern, keywords = pattern.split(), keywords.split()
+                                for i in range(len(pattern)):
+                                    if pattern[i] == "N":
+                                        pattern[i], keywords[i] = c, k
+                                send_text_message(sender_id, "".join(keywords))
+                            else:
+                                send_text_message(sender_id, "無法度")
+                        else:
+                            if payload_command[0] == 'detail':
+                                properties = know2.instance_all_properties(payload_command[1])
+                                response_text = payload_command[1][4:] + "的資料如下：" + "\n"
+                                for p in properties:
+                                    response_text += p[0] + " : " + p[1] + "\n"
+                                send_text_message(sender_id, response_text)
+                            elif payload_command[0] == 'relation':
+                                relations = know2.instance_relation(payload_command[1])
+                                response_text = payload_command[1][4:] + "的關係如下：" + "\n"
+                                for r in relations:
+                                    response_text += r + "\n"
+                                send_text_message(sender_id, response_text)
 
     return "ok", 200
 

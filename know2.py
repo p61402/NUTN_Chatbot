@@ -311,10 +311,10 @@ query_functions = {-1: invalid_query,
                    10: instance_relation_property_propertyValue_instance,
                    11: class_property_propertyValue_relation_class_instance,
                    12: class_relation_class_instance_property_propertyValue,
-                   13: instance_relation,
-                   14: class_relation,
-                   15: class_subclass,
-                   16: instance_all_properties}
+                   50: instance_relation,
+                   51: class_relation,
+                   52: class_subclass,
+                   53: instance_all_properties}
 
 
 def make_query(query_number, *args):

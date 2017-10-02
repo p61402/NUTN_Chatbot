@@ -7,7 +7,25 @@ from hanziconv import HanziConv
 
 
 dir_path = "詞庫/"
+record_path = "record/"
 quantity_question_words = ["多少", "几", "几个", "几堂", "几位"]
+personal_pronoun = ["你", "您", "我", "他", "我们", "你们", "他们", "咱", "咱们", "大家", "大伙儿", "人家", "别人", "旁人", "自", "自个儿"]
+demonstrative_pronoun = ["这", "那", "这里", "那里", "这儿", "那儿", "这会儿", "那会儿", "这么", "那么", "这样", "那样", "这么样", "那么样"]
+pronoun = personal_pronoun + demonstrative_pronoun
+
+classes = open(dir_path + "類別.txt", encoding='utf8').read().splitlines()
+instances = open(dir_path + "實體.txt", encoding='utf8').read().splitlines()
+relations = open(dir_path + "關係.txt", encoding='utf8').read().splitlines()
+properties = open(dir_path + "特質.txt", encoding='utf8').read().splitlines()
+property_values = open(dir_path + "特質內容.txt", encoding='utf8').read().splitlines()
+question_words = open(dir_path + "疑問詞.txt", encoding='utf8').read().splitlines()
+
+simp_classes = [HanziConv.toSimplified(c) for c in classes]
+simp_instances = [HanziConv.toSimplified(i) for i in instances]
+simp_relations = [HanziConv.toSimplified(r) for r in relations]
+simp_properties = [HanziConv.toSimplified(p) for p in properties]
+simp_property_values = [HanziConv.toSimplified(p) for p in property_values]
+simp_question_words = [HanziConv.toSimplified(q) for q in question_words]
 
 
 def not_a_question(user_input):
@@ -35,12 +53,31 @@ def not_a_question(user_input):
     return False
 
 
-def query_matching(user_query):
+def query_matching(user_query, keywords):
     queries = ["C", "I", "CR", "CC", "IR", "II", "IP", "CRC", "CPV", "CRI", "IRPV", "CPVRC", "CRCPV"]
     for num, query in enumerate(queries):
         if collections.Counter(user_query) == collections.Counter(query):
-            return num
-    return -1
+            new_keywords = [] * len(keywords)
+            for i, q1 in enumerate(query):
+                for j, q2 in enumerate(user_query):
+                    if q1 == q2 and keywords[j]:
+                        new_keywords[i] = keywords[j]
+                        keywords[j] = None
+            return num, new_keywords
+    return -1, None
+
+
+def find_class(word):
+    if word in simp_classes:
+        return "C", "rdf:" + classes[simp_classes.index(word)]
+    elif word in simp_instances:
+        return "I", "rdf:" + instances[simp_instances.index(word)]
+    elif word in simp_relations:
+        return "R", "rdf:" + relations[simp_relations.index(word)]
+    elif word in simp_properties:
+        return "P", "rdf:" + properties[simp_properties.index(word)]
+    else:
+        return None, None
 
 
 def question(user_input):
@@ -48,24 +85,11 @@ def question(user_input):
     if response:
         return response, -2
 
-    classes = open(dir_path + "類別.txt", encoding='utf8').read().splitlines()
-    instances = open(dir_path + "實體.txt", encoding='utf8').read().splitlines()
-    relations = open(dir_path + "關係.txt", encoding='utf8').read().splitlines()
-    properties = open(dir_path + "特質.txt", encoding='utf8').read().splitlines()
-    property_values = open(dir_path + "特質內容.txt", encoding='utf8').read().splitlines()
-    question_words = open(dir_path + "疑問詞.txt", encoding='utf8').read().splitlines()
-
-    simp_classes = [HanziConv.toSimplified(c) for c in classes]
-    simp_instances = [HanziConv.toSimplified(i) for i in instances]
-    simp_relations = [HanziConv.toSimplified(r) for r in relations]
-    simp_properties = [HanziConv.toSimplified(p) for p in properties]
-    simp_property_values = [HanziConv.toSimplified(p) for p in property_values]
-    simp_question_words = [HanziConv.toSimplified(q) for q in question_words]
-
     user_input = HanziConv.toSimplified(user_input)
     user_seg_list = list(jieba_system.start(user_input))
     print("使用者斷詞:", user_seg_list)
 
+    is_followup = False
     keywords = []
     pattern = []
     user_question_word = ""
@@ -85,15 +109,27 @@ def question(user_input):
         elif word in simp_property_values:
             pattern.append("V")
             keywords.append(property_values[simp_property_values.index(word)])
+        elif word in pronoun:
+            is_followup = True
+            pattern.append("N")
+            keywords.append("pronoun")
         elif word in simp_question_words:
             user_question_word = word
 
+    if is_followup or (not keywords and user_question_word):
+        pattern_file = open(record_path + 'test_pattern.txt', 'rw+', encoding='utf8')
+        pattern_file.write(" ".join(pattern) + '\n')
+        pattern_file.write(" ".join(keywords) + '\n')
+        record_file = open(record_path + 'test_record.txt', 'rw+', encoding='utf8')
+        records = record_file.read().splitlines()
+        return records, 87
+
     print("user query:", pattern)
-    match_number = query_matching(pattern)
+    match_number, keywords = query_matching(pattern, keywords)
     response = know2.make_query(match_number, *keywords)
 
     if not response and match_number == 0:
-        match_number = 15
+        match_number = 52
         response = know2.make_query(match_number, *keywords)
 
     if match_number == 1:
