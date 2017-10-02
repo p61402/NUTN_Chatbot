@@ -40,20 +40,19 @@ def webhook():
                 if messaging_event.get('message'):
                     if 'quick_reply' in messaging_event['message'] and 'payload' in messaging_event['message']['quick_reply']:
                         payload_command = messaging_event['message']['quick_reply']['payload']
-                        if len(payload_command) == 1:
-                            c, k = query3.find_class(payload_command[0])
-                            if c and k:
-                                with open('record/test_pattern.txt', 'r') as pattern_file:
-                                    pattern, keywords = pattern_file.read().splitlines()
-                                    pattern, keywords = pattern.split(), keywords.split()
-                                print("pattern:", pattern)
-                                print("keywords:", keywords)
-                                for i in range(len(pattern)):
-                                    if pattern[i] == "N":
-                                        pattern[i], keywords[i] = c, k
-                                send_text_message(sender_id, "".join(keywords))
-                            else:
-                                send_text_message(sender_id, "無法度")
+                        c, k = query3.find_class(payload_command)
+                        if c and k:
+                            with open('record/test_pattern.txt', 'r') as pattern_file:
+                                pattern, keywords = pattern_file.read().splitlines()
+                                pattern, keywords = pattern.split(), keywords.split()
+                            print("pattern:", pattern)
+                            print("keywords:", keywords)
+                            for i in range(len(pattern)):
+                                if pattern[i] == "N":
+                                    pattern[i], keywords[i] = c, k
+                            send_text_message(sender_id, "".join(keywords))
+                        else:
+                            send_text_message(sender_id, "無法度")
                     # Extracting text message
                     elif 'text' in messaging_event['message']:
                         messaging_text = messaging_event['message']['text']

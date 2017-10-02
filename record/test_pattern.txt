@@ -1,2 +1,2 @@
-N
-pronoun
+N R
+pronoun rdf:開課
