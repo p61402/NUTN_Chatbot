@@ -69,14 +69,14 @@ def query_matching(user_query, keywords):
 
 
 def find_class(word):
-    if word in simp_classes:
-        return "C", "rdf:" + classes[simp_classes.index(word)]
-    elif word in simp_instances:
-        return "I", "rdf:" + instances[simp_instances.index(word)]
-    elif word in simp_relations:
-        return "R", "rdf:" + relations[simp_relations.index(word)]
-    elif word in simp_properties:
-        return "P", "rdf:" + properties[simp_properties.index(word)]
+    if word in classes:
+        return "C", "rdf:" + word
+    elif word in instances:
+        return "I", "rdf:" + word
+    elif word in relations:
+        return "R", "rdf:" + word
+    elif word in properties:
+        return "P", "rdf:" + word
     else:
         return None, None
 
@@ -130,9 +130,9 @@ def question(user_input):
     if os.path.exists(record_path + 'test_record.txt'):
         with open(record_path + 'test_record.txt', 'w', encoding='utf8') as f:
             for keyword in keywords:
-                c, _ = find_class(HanziConv.toSimplified(keyword[4:]))
+                c, _ = find_class(keyword[4:])
                 if c:
-                    f.write(keyword + '\n')
+                    f.write(keyword[4:] + '\n')
 
     print("user query:", pattern)
     match_number, keywords = query_matching(pattern, keywords)
