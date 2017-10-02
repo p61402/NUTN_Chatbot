@@ -50,7 +50,7 @@ def webhook():
                         if response:
                             send_quick_reply(sender_id, response)
                         else:
-                            send_text_message("沒東西")
+                            send_text_message(sender_id, "沒東西")
                     elif match_number == 1:
                         send_text_message(sender_id, response[0])
                         send_button(sender_id, response[1])
