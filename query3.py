@@ -120,7 +120,7 @@ def question(user_input):
         with open(record_path + 'test_pattern.txt', 'w+', encoding='utf8') as pf:
             pf.write(" ".join(pattern) + '\n')
             pf.write(" ".join(keywords) + '\n')
-        with open(record_path + 'test_record.txt', 'r+', encoding='utf8') as rf:
+        with open(record_path + 'test_record.txt', 'w+', encoding='utf8') as rf:
             records = rf.read().splitlines()
         return records, 87
 
