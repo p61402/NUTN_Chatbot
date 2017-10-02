@@ -38,8 +38,22 @@ def webhook():
                 send_actions(sender_id)
 
                 if messaging_event.get('message'):
+                    if 'quick_reply' in messaging_event['message'] and 'payload' in messaging_event['message']['quick_reply']:
+                        payload_command = messaging_event['message']['quick_reply']['payload']
+                        if len(payload_command) == 1:
+                            c, k = query3.find_class(payload_command[0])
+                            if c and k:
+                                pattern_file = open('record/test_pattern.txt', 'r')
+                                pattern, keywords = pattern_file.read().splitlines()
+                                pattern, keywords = pattern.split(), keywords.split()
+                                for i in range(len(pattern)):
+                                    if pattern[i] == "N":
+                                        pattern[i], keywords[i] = c, k
+                                send_text_message(sender_id, "".join(keywords))
+                            else:
+                                send_text_message(sender_id, "無法度")
                     # Extracting text message
-                    if 'text' in messaging_event['message']:
+                    elif 'text' in messaging_event['message']:
                         messaging_text = messaging_event['message']['text']
                         # Echo
                         response, match_number = query3.question(messaging_text)
@@ -55,20 +69,6 @@ def webhook():
                             if match_number != -1 and match_number != -2:
                                 response = ", ".join(response)
                             send_text_message(sender_id, response)
-                    elif 'quick_reply' in messaging_event['message'] and 'payload' in messaging_event['message']['quick_reply']:
-                        payload_command = messaging_event['message']['quick_reply']['payload']
-                        if len(payload_command) == 1:
-                            c, k = query3.find_class(payload_command[0])
-                            if c and k:
-                                pattern_file = open('record/test_pattern.txt', 'r')
-                                pattern, keywords = pattern_file.read().splitlines()
-                                pattern, keywords = pattern.split(), keywords.split()
-                                for i in range(len(pattern)):
-                                    if pattern[i] == "N":
-                                        pattern[i], keywords[i] = c, k
-                                send_text_message(sender_id, "".join(keywords))
-                            else:
-                                send_text_message(sender_id, "無法度")
 
                 elif messaging_event.get('postback'):
                     if 'payload' in messaging_event['postback']:
