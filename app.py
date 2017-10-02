@@ -43,9 +43,11 @@ def webhook():
                         if len(payload_command) == 1:
                             c, k = query3.find_class(payload_command[0])
                             if c and k:
-                                pattern_file = open('record/test_pattern.txt', 'r')
-                                pattern, keywords = pattern_file.read().splitlines()
-                                pattern, keywords = pattern.split(), keywords.split()
+                                with open('record/test_pattern.txt', 'r') as pattern_file:
+                                    pattern, keywords = pattern_file.read().splitlines()
+                                    pattern, keywords = pattern.split(), keywords.split()
+                                print("pattern:", pattern)
+                                print("keywords:", keywords)
                                 for i in range(len(pattern)):
                                     if pattern[i] == "N":
                                         pattern[i], keywords[i] = c, k
