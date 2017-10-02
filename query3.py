@@ -58,14 +58,14 @@ def query_matching(user_query, keywords):
     queries = ["C", "I", "CR", "CC", "IR", "II", "IP", "CRC", "CPV", "CRI", "IRPV", "CPVRC", "CRCPV"]
     for num, query in enumerate(queries):
         if collections.Counter(user_query) == collections.Counter(query):
-            new_keywords = [] * len(keywords)
+            new_keywords = [None] * len(keywords)
             for i, q1 in enumerate(query):
                 for j, q2 in enumerate(user_query):
                     if q1 == q2 and keywords[j]:
                         new_keywords[i] = keywords[j]
                         keywords[j] = None
             return num, new_keywords
-    return -1, None
+    return -1, []
 
 
 def find_class(word):
