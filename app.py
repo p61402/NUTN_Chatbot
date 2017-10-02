@@ -67,33 +67,37 @@ def webhook():
                     if payload_command == "do nothing":
                         send_text_message(sender_id, "收到!")
                     else:
-                        print("Payload:", payload_command)
                         payload_command = payload_command.split()
-                        if len(payload_command) == 1:
-                            c, k = query3.find_class(payload_command[0])
-                            if c and k:
-                                pattern_file = open('record/test_pattern.txt', 'r')
-                                pattern, keywords = pattern_file.read().splitlines()
-                                pattern, keywords = pattern.split(), keywords.split()
-                                for i in range(len(pattern)):
-                                    if pattern[i] == "N":
-                                        pattern[i], keywords[i] = c, k
-                                send_text_message(sender_id, "".join(keywords))
-                            else:
-                                send_text_message(sender_id, "無法度")
+                        if payload_command[0] == 'detail':
+                            properties = know2.instance_all_properties(payload_command[1])
+                            response_text = payload_command[1][4:] + "的資料如下：" + "\n"
+                            for p in properties:
+                                response_text += p[0] + " : " + p[1] + "\n"
+                            send_text_message(sender_id, response_text)
+                        elif payload_command[0] == 'relation':
+                            relations = know2.instance_relation(payload_command[1])
+                            response_text = payload_command[1][4:] + "的關係如下：" + "\n"
+                            for r in relations:
+                                response_text += r + "\n"
+                            send_text_message(sender_id, response_text)
+                elif messaging_event.get("message"):
+                    if 'quick_reply' in messaging_event['message'] and 'payload' in messaging_event['message']['quick_reply']:
+                        payload_command = messaging_event['message']['quick_reply']['payload']
+                    else:
+                        payload_command = "no payload"
+                    
+                    if len(payload_command) == 1:
+                        c, k = query3.find_class(payload_command[0])
+                        if c and k:
+                            pattern_file = open('record/test_pattern.txt', 'r')
+                            pattern, keywords = pattern_file.read().splitlines()
+                            pattern, keywords = pattern.split(), keywords.split()
+                            for i in range(len(pattern)):
+                                if pattern[i] == "N":
+                                    pattern[i], keywords[i] = c, k
+                            send_text_message(sender_id, "".join(keywords))
                         else:
-                            if payload_command[0] == 'detail':
-                                properties = know2.instance_all_properties(payload_command[1])
-                                response_text = payload_command[1][4:] + "的資料如下：" + "\n"
-                                for p in properties:
-                                    response_text += p[0] + " : " + p[1] + "\n"
-                                send_text_message(sender_id, response_text)
-                            elif payload_command[0] == 'relation':
-                                relations = know2.instance_relation(payload_command[1])
-                                response_text = payload_command[1][4:] + "的關係如下：" + "\n"
-                                for r in relations:
-                                    response_text += r + "\n"
-                                send_text_message(sender_id, response_text)
+                            send_text_message(sender_id, "無法度")
 
     return "ok", 200
 
