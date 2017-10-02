@@ -130,7 +130,7 @@ def question(user_input):
     if os.path.exists(record_path + 'test_record.txt'):
         with open(record_path + 'test_record.txt', 'w', encoding='utf8') as f:
             for keyword in keywords:
-                c, _ = find_class(keyword)
+                c, _ = find_class(HanziConv.toSimplified(keyword[4:]))
                 if c:
                     f.write(keyword + '\n')
 
