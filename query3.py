@@ -135,6 +135,7 @@ def question(user_input):
                     f.write(keyword[4:] + '\n')
 
     print("user query:", pattern)
+    print("name entity: ", keywords)
     match_number, keywords = query_matching(pattern, keywords)
     response = know2.make_query(match_number, *keywords)
 

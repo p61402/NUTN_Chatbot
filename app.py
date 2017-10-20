@@ -39,22 +39,37 @@ def webhook():
 
                 if messaging_event.get('message'):
                     if 'quick_reply' in messaging_event['message'] and 'payload' in messaging_event['message']['quick_reply']:
-                        payload_command = messaging_event['message']['quick_reply']['payload']
-                        c, k = query3.find_class(payload_command)
-                        if c and k:
-                            with open('record/test_pattern.txt', 'r') as pattern_file:
-                                pattern, keywords = pattern_file.read().splitlines()
-                                pattern, keywords = pattern.split(), keywords.split()
-                            for i in range(len(pattern)):
-                                if pattern[i] == "N":
-                                    pattern[i], keywords[i] = c, k
-                            keywords = [keyword[4:] for keyword in keywords]
-                            question = "".join(keywords)
-                            send_text_message(sender_id, "問句: " + question)
-                            response, match_number = query3.question(question)
+                        payload_command, payload_type = messaging_event['message']['quick_reply']['payload'].split()
+                        if payload_type == 'follow-up':
+                            c, k = query3.find_class(payload_command)
+                            if c and k:
+                                with open('record/test_pattern.txt', 'r') as pattern_file:
+                                    pattern, keywords = pattern_file.read().splitlines()
+                                    pattern, keywords = pattern.split(), keywords.split()
+                                for i in range(len(pattern)):
+                                    if pattern[i] == "N":
+                                        pattern[i], keywords[i] = c, k
+                                keywords = [keyword[4:] for keyword in keywords]
+                                question = "".join(keywords)
+                                send_text_message(sender_id, "問句: " + question)
+                                response, match_number = query3.question(question)
+                                if match_number == 52 or match_number == 87:
+                                    if response:
+                                        send_quick_reply(sender_id, response, match_number)
+                                    else:
+                                        send_text_message(sender_id, "沒東西")
+                                elif match_number == 1:
+                                    send_text_message(sender_id, response[0])
+                                    send_button(sender_id, response[1])
+                                else:
+                                    if match_number != -1 and match_number != -2:
+                                        response = ", ".join(response)
+                                    send_text_message(sender_id, response)
+                        elif payload_type == 'normal':
+                            response, match_number = query3.question(payload_command)
                             if match_number == 52 or match_number == 87:
                                 if response:
-                                    send_quick_reply(sender_id, response)
+                                    send_quick_reply(sender_id, response, match_number)
                                 else:
                                     send_text_message(sender_id, "沒東西")
                             elif match_number == 1:
@@ -73,7 +88,7 @@ def webhook():
                         response, match_number = query3.question(messaging_text)
                         if match_number == 52 or match_number == 87:
                             if response:
-                                send_quick_reply(sender_id, response)
+                                send_quick_reply(sender_id, response, match_number)
                             else:
                                 send_text_message(sender_id, "沒東西")
                         elif match_number == 1:
@@ -163,13 +178,19 @@ def send_button(sender_id, instance):
     call_send_api(sender_id, data)
 
 
-def send_quick_reply(sender_id, options):
+def send_quick_reply(sender_id, options, match_number):
+    if match_number == 87:
+        payload = 'follow-up'
+    elif match_number == 52:
+        payload = 'normal'
+    else:
+        print("Something wrong in send_quick_reply.")
     quick_reply = []
     for option in options:
         quick_reply.append({
             "content_type": "text",
             "title": option,
-            "payload": option,
+            "payload": option + ' ' + payload,
         })
 
     data = json.dumps({
